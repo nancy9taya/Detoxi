@@ -3,11 +3,21 @@ Toxicity has always been an issue. We can find toxicity in  almost all aspects o
 This is where our project “Detoxi” idea came from. We aim to limit the toxicity that surrounds us as much as possible. 
 
 
-## Table of contents
+## Table of contents:
+* [DataSets](#datasets)
 * [Cleanning Code](#cleanning-code)
 * [GRU Model](#gru-model)
 * [BERT Model](#bert-model)
 * [XGBOOST Model](#xgboost-model)
+
+## DataSets
+We used [Kaggle's Civil Comments dataset](https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification/data), 
+[Hate Speech and Offensive dataset](https://www.kaggle.com/mrmorj/hate-speech-and-offensive-language-dataset)
+and [Insulting Tweets during the 2019 Federal Election in Canada](https://dataverse.scholarsportal.info/dataset.xhtml?persistentId=doi:10.5683/SP2/9VSRHU)
+datasets to train, validate and test our models. 
+
+
+
 
 ## Cleanning Code
 * ![Cleanning Code](https://github.com/nancy9taya/Detoxi/blob/main/CleaningCode.ipynb)
@@ -43,7 +53,7 @@ Then look for synonyms and antonyms for each synonym, returning the negated term
 Bidirectional GRU are really just putting two independent GRUs together. This structure allows the networks to have both backward and forward information about the sequence at every time step.
 Using bidirectional will run your inputs in two directions, one from past to future and the other from future to past. What distinguishes this approach from unidirectional is that in the Simple GRU that runs backward, information from the future is preserved, whereas using the two hidden states combined, you can preserve information from both past and future at any point in time.
 
-* Features extraction:
+* ### Features extraction:
 
 In our model, each little detail about the user's tweet might help the model learn more about the user's state and the emotion expressed in the text.
 The features collected from text are useful information that is passed to a neural network.
@@ -58,7 +68,50 @@ The features collected from text are useful information that is passed to a neur
 | Counting the you_count | To figure out how the tweet contains personal information for a specific person |
 | Counting the mentions  | The mentions demonstrate how the user wants to draw attention to himself or herself from certain individuals or organizations |
 | Counting the smilies  | The smilies may indicate either a friendly tweet or sarcastic |
-| Counting the symbols | The high number of symbols usually used on insults**&#$%“”¨«»®´·º½¾¿¡§£₤‘’* |
+| Counting the symbols | The high number of symbols usually used on insults **&#$%“”¨«»®´·º½¾¿¡§£₤‘’* |
+
+
+* ### Tokenizing and Texts_to_sequences:
+
+Tokenization is a common technique that splits a sentence into tokens, where a token could be characters, words, phrases, symbols, or other meaningful elements. By breaking sentences into smaller chunks, that would help to investigate the words in a sentence and also the subsequent steps in the NLP pipeline, such as lemmatization.
+Then “texts_to_sequences” transforms each text into a sequence of integers. So it basically takes each word in the text and replaces it with its corresponding integer value from the word_index dictionary.
+
+* ### Custom Padding:
+
+We want all of the texts to have the same length, so we use padding to add zeros to the end of the vector, however this does not work properly.
+As a result, we created customized padding that repeats the word sequences until the desired length is reached. Our model's performance is improved because of the custom padding.
+
+* ### Combining Two Different Word Embedding:
+
+We decide to use word embedding GloVe which is a powerful word embedding technique that has been used for text classiﬁcation The approach is used as each 0word is presented by a high dimension vector and trained based on the surrounding words over a huge corpus. The pre-trained word embedding used in many works is based on 400,000 vocabularies trained over Wikipedia 2014 and Gigaword 5 as the corpus and 50 dimensions for word presentation. GloVe also provides other pre-trained word vectorizations with 100, 200, 300 dimensions which are trained over even bigger corpora, including Twitter content.
+Combining the GloVe vector with FastText that improves on Word2Vec by taking word parts into account, too. This trick enables training of embeddings on smaller datasets and generalization to unknown words.
+We also replaced the words that aren't in formal english with the embedding GloVe and FastText representation of the word “something”.
+
+* ###  Attention Layer:
+
+Although an GRU  is supposed to capture the long-range dependency better than the RNN, it tends to become forgetful in specific cases. Another problem is that there is no way to give more importance to some of the input words compared to others while translating the sentence.
+As a result, whenever the suggested model creates a phrase, it looks for a collection of hidden states in the encoder where the most relevant information is available. This concept is known as 'Attention.' .In Bahdanau's work, he proposed an attention mechanism that learns to align and translate jointly. It is also known as Additive attention as it performs a linear combination of encoder states and the decoder states. 
+
+
+* ### Evaluation:
+
+We split the data set into 80% for train and validation , 20% for  test
+The 80% we split it to training and validation using K-folds with K=10.
+
+| Training Accuracy | Valdition Accuracy| Test Accuracy |
+| --- | --- | --- |
+| 95% | 92.8% | 92.8% | 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
