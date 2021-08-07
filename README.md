@@ -55,7 +55,7 @@ The features collected from text are useful information that is passed to a neur
 | Counting the you_count | To figure out how the tweet contains personal information for a specific person. |
 | Counting the mentions  | The mentions demonstrate how the user wants to draw attention to himself or herself from certain individuals or organizations. |
 | Counting the smilies  | The smilies may indicate either a friendly tweet or sarcastic. |
-| Counting the symbols | The high number of symbols usually used on insults as \[*&#$%“”¨«»®´·º½¾¿¡§£₤‘’" ]   |
+| Counting the symbols | The high number of symbols usually used on insults |
 
 
 
