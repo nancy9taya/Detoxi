@@ -9,6 +9,7 @@ This is where our project “Detoxi” idea came from. We aim to limit the toxic
 * [GRU Model](#gru-model)
 * [BERT Model](#bert-model)
 * [XGBOOST Model](#xgboost-model)
+* [Author](#author)
 
 ## DataSets
 We used [Kaggle's Civil Comments dataset](https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification/data), 
@@ -140,6 +141,10 @@ We Split the Data to 80% Train and 20% Valdition
 ## XGBOOST Model
 * [XGBOOST Model Code](https://github.com/nancy9taya/Detoxi/blob/main/xgboost-bert.ipynb)
 
-Our model is simply taking a text from GUI and passing it through our 3 sub models to extract  finest features  from text and combining their predictions to be the input  to the XGboost to find the best response either to hide the comment or leave it.
+Our model is simply taking a text from GUI and passing it through our 3 sub models to extract  finest features  from text and combining their predictions to be the input to the XGboost to find the best response either to hide the comment or leave it.
+The figure shows how the Xgboost architecture works by combining the submodel predictions to the final one
 ![Xgboost](https://github.com/nancy9taya/Detoxi/blob/main/XGBOOST.png)
-shows how the Xgboost architecture works by combining the submodel predictions to the final one
+
+## Author
+[Nancy Hassan](https://github.com/nancy9taya)
+Email: (Nancy.hassan99@eng-st.cu.edu.eg)
