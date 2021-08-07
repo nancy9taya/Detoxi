@@ -20,7 +20,7 @@ datasets to train, validate and test our models.
 
 
 ## Cleanning Code
-* ![Cleanning Code](https://github.com/nancy9taya/Detoxi/blob/main/CleaningCode.ipynb)
+* [Cleanning Code](https://github.com/nancy9taya/Detoxi/blob/main/CleaningCode.ipynb)
 
 We aim to handle text cleaning in the preparation stage to minimize computing time without losing any information. We accomplished it by following these steps:
 
@@ -47,7 +47,7 @@ Then look for synonyms and antonyms for each synonym, returning the negated term
 * Remove the empty rows after lemmatization
 
 ## GRU Model
-* ![GRU Model Code](https://github.com/nancy9taya/Detoxi/blob/main/Model_GRU_2Emb.ipynb)
+* [GRU Model Code](https://github.com/nancy9taya/Detoxi/blob/main/Model_GRU_2Emb.ipynb)
 * ### Bidirectional GRU:
 
 Bidirectional GRU are really just putting two independent GRUs together. This structure allows the networks to have both backward and forward information about the sequence at every time step.
@@ -103,24 +103,39 @@ The 80% we split it to training and validation using K-folds with K=10.
 | 95% | 92.8% | 92.8% | 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## BERT Model
-* ![BERT Model Code](https://github.com/nancy9taya/Detoxi/blob/main/finalbert.ipynb)
+* [BERT Model Code](https://github.com/nancy9taya/Detoxi/blob/main/finalbert.ipynb)
 
+Transformer, an attention mechanism that learns contextual relationships between words (or sub-words) in a text, is used by BERT. Transformer contains two distinct processes in its basic form: an encoder that reads the text input and a decoder that generates a job prediction. Only the encoder mechanism is required because BERT's objective is to create a language model.
+The detailed workings of Transformer are described in a paper by Google called "Attention is all you need".
+This property enables the model to deduce the context of a word from its surroundings (left and right of the word). This property enables the model to deduce the context of a word from its surroundings (left and right of the word).
+
+* ### We use Small BERT
+Small BERTS feature the same fundamental design as large BERTS but include fewer and/or smaller Transformer pieces, allowing you to experiment with performance, size, and quality tradeoffs while also being easier to fine-tune. As a result, we chose Small BERTS to leverage Transformer's cutting-edge design to boost performance in a timely manner.
+
+* ### The Preprocessing Model
+Before being entered into BERT, text inputs must be converted to numeric token ids and organized in multiple Tensors.
+
+A BERT model would employ three outputs from the preprocessing (input words id, input mask, and input type ids):
+* The input has been trimmed to a maximum of 128 tokens.
+* Because it is a single phrase input, the input type ids only contain one value (0).
+* It would have one number for each input for a multiple phrase input.
+
+* ## Using BERT Model
+The BERT models produce a map with three crucial keys: pooled output, sequence output, and encoder outputs: pooled output, sequence output, and encoder outputs:
+Each input sequence is represented by pooled output. [batch size, H] is its shape. This may be thought of as a movie review embedded.
+Each token in the context is represented by sequence output. [batch size, seq length, H], for example, is the shape. Consider it a contextual embedding for each token in the film review.
+The encoder outputs are the L Transformer blocks' intermediate activations. outputs["encoder outputs"] For I L, I is a Tensor of shape [batch size, seq length, 1024] that contains the outputs of the i-th Transformer block. sequence output is the final value in the list.
+We'll utilize the pooled output array for fine-tuning purposes.
+
+* ## Evaluation
+
+We Split the Data to 80% Train and 20% Valdition
+
+| Training Accuracy | Valdition Accuracy| Test Accuracy |
+| --- | --- | --- |
+| 93.5% | 95% | 91% | 
 
 
 ## XGBOOST Model
-* ![XGBOOST Model Code](https://github.com/nancy9taya/Detoxi/blob/main/xgboost-bert.ipynb)
+* [XGBOOST Model Code](https://github.com/nancy9taya/Detoxi/blob/main/xgboost-bert.ipynb)
