@@ -10,7 +10,8 @@ This is where our project “Detoxi” idea came from. We aim to limit the toxic
 * [XGBOOST Model](#xgboost-model)
 
 ## Cleanning Code
-![Cleanning Code](https://github.com/nancy9taya/Detoxi/blob/main/CleaningCode.ipynb)
+* ![Cleanning Code](https://github.com/nancy9taya/Detoxi/blob/main/CleaningCode.ipynb)
+
 We aim to handle text cleaning in the preparation stage to minimize computing time without losing any information. We accomplished it by following these steps:
 
 * Remove empty rows
@@ -36,20 +37,34 @@ Then look for synonyms and antonyms for each synonym, returning the negated term
 * Remove the empty rows after lemmatization
 
 ## GRU Model
-![GRU Model Code](https://github.com/nancy9taya/Detoxi/blob/main/Model_GRU_2Emb.ipynb)
+* ![GRU Model Code](https://github.com/nancy9taya/Detoxi/blob/main/Model_GRU_2Emb.ipynb)
 * Bidirectional GRU 
 Bidirectional GRU are really just putting two independent GRUs together. This structure allows the networks to have both backward and forward information about the sequence at every time step.
 Using bidirectional will run your inputs in two directions, one from past to future and the other from future to past. What distinguishes this approach from unidirectional is that in the Simple GRU that runs backward, information from the future is preserved, whereas using the two hidden states combined, you can preserve information from both past and future at any point in time.
 
 * Features extraction
+In our model, each little detail about the user's tweet might help the model learn more about the user's state and the emotion expressed in the text.
+The features collected from text are useful information that is passed to a neural network.
+|Feature  | Usage|
+| ------------- | ------------- |
+| Counting the capitals  | The capital letters are meant to emphasize the importance of the words, and many people have employed them to express strong feelings about words. |
+| Counting the unique words  | The unique words show how distinctive the phrases are and how long they are, rather than merely repeating words. |
+| Counting the punctuations  | It indicates that the user wants to pause, stop, or emphasize specific sections of the text. |
+| Counting the exclamation_marks  | The number of exclamation marks so times depend on personal attacks.  |
+| Counting the question_marks | The number of question marks so times depend on personal attacks.  |
+| Counting the you_count | To figure out how the tweet contains personal information for a specific person. |
+| Counting the mentions  | The mentions demonstrate how the user wants to draw attention to himself or herself from certain individuals or organizations. |
+| Counting the smilies  | The smilies may indicate either a friendly tweet or sarcastic. |
+| Counting the symbols | The high number of symbols usually used on insults as \[*&#$%“”¨«»®´·º½¾¿¡§£₤‘’" ]   |
+
 
 
 
 
 ## BERT Model
-![BERT Model Code](https://github.com/nancy9taya/Detoxi/blob/main/finalbert.ipynb)
+* ![BERT Model Code](https://github.com/nancy9taya/Detoxi/blob/main/finalbert.ipynb)
 
 
 
 ## XGBOOST Model
-![XGBOOST Model Code](https://github.com/nancy9taya/Detoxi/blob/main/xgboost-bert.ipynb)
+* ![XGBOOST Model Code](https://github.com/nancy9taya/Detoxi/blob/main/xgboost-bert.ipynb)
