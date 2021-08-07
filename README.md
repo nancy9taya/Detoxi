@@ -45,16 +45,17 @@ Using bidirectional will run your inputs in two directions, one from past to fut
 * Features extraction
 In our model, each little detail about the user's tweet might help the model learn more about the user's state and the emotion expressed in the text.
 The features collected from text are useful information that is passed to a neural network.
+
 |Feature  | Usage|
 | ------------- | ------------- |
-| Counting the capitals  | The capital letters are meant to emphasize the importance of the words, and many people have employed them to express strong feelings about words. |
-| Counting the unique words  | The unique words show how distinctive the phrases are and how long they are, rather than merely repeating words. |
-| Counting the punctuations  | It indicates that the user wants to pause, stop, or emphasize specific sections of the text. |
-| Counting the exclamation_marks  | The number of exclamation marks so times depend on personal attacks.  |
-| Counting the question_marks | The number of question marks so times depend on personal attacks.  |
-| Counting the you_count | To figure out how the tweet contains personal information for a specific person. |
-| Counting the mentions  | The mentions demonstrate how the user wants to draw attention to himself or herself from certain individuals or organizations. |
-| Counting the smilies  | The smilies may indicate either a friendly tweet or sarcastic. |
+| Counting the capitals  | The capital letters are meant to emphasize the importance of the words, and many people have employed them to express strong feelings about words |
+| Counting the unique words  | The unique words show how distinctive the phrases are and how long they are, rather than merely repeating words |
+| Counting the punctuations  | It indicates that the user wants to pause, stop, or emphasize specific sections of the text |
+| Counting the exclamation_marks  | The number of exclamation marks so times depend on personal attacks |
+| Counting the question_marks | The number of question marks so times depend on personal attacks  |
+| Counting the you_count | To figure out how the tweet contains personal information for a specific person |
+| Counting the mentions  | The mentions demonstrate how the user wants to draw attention to himself or herself from certain individuals or organizations |
+| Counting the smilies  | The smilies may indicate either a friendly tweet or sarcastic |
 | Counting the symbols | The high number of symbols usually used on insults |
 
 
