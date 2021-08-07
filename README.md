@@ -38,11 +38,13 @@ Then look for synonyms and antonyms for each synonym, returning the negated term
 
 ## GRU Model
 * ![GRU Model Code](https://github.com/nancy9taya/Detoxi/blob/main/Model_GRU_2Emb.ipynb)
-* Bidirectional GRU 
+* ### Bidirectional GRU:
+
 Bidirectional GRU are really just putting two independent GRUs together. This structure allows the networks to have both backward and forward information about the sequence at every time step.
 Using bidirectional will run your inputs in two directions, one from past to future and the other from future to past. What distinguishes this approach from unidirectional is that in the Simple GRU that runs backward, information from the future is preserved, whereas using the two hidden states combined, you can preserve information from both past and future at any point in time.
 
-* Features extraction
+* Features extraction:
+
 In our model, each little detail about the user's tweet might help the model learn more about the user's state and the emotion expressed in the text.
 The features collected from text are useful information that is passed to a neural network.
 
@@ -56,7 +58,7 @@ The features collected from text are useful information that is passed to a neur
 | Counting the you_count | To figure out how the tweet contains personal information for a specific person |
 | Counting the mentions  | The mentions demonstrate how the user wants to draw attention to himself or herself from certain individuals or organizations |
 | Counting the smilies  | The smilies may indicate either a friendly tweet or sarcastic |
-| Counting the symbols | The high number of symbols usually used on insults |
+| Counting the symbols | The high number of symbols usually used on insults**&#$%“”¨«»®´·º½¾¿¡§£₤‘’* |
 
 
 
