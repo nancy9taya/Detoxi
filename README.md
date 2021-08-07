@@ -4,12 +4,13 @@ This is where our project “Detoxi” idea came from. We aim to limit the toxic
 
 
 ## Table of contents
-* [Cleanning Code](#https://github.com/nancy9taya/Detoxi/blob/main/CleaningCode.ipynb)
-* [GRU Model](#https://github.com/nancy9taya/Detoxi/blob/main/Model_GRU_2Emb.ipynb)
-* [BERT Model](#https://github.com/nancy9taya/Detoxi/blob/main/finalbert.ipynb)
-* [XGBOOST Model](#https://github.com/nancy9taya/Detoxi/blob/main/xgboost-bert.ipynb)
+* [Cleanning Code](#cleanning-code)
+* [GRU Model](#gru-model)
+* [BERT Model](#bert-model)
+* [XGBOOST Model](#xgboost-model)
 
 ## Cleanning Code
+![Cleanning Code](https://github.com/nancy9taya/Detoxi/blob/main/CleaningCode.ipynb)
 We aim to handle text cleaning in the preparation stage to minimize computing time without losing any information. We accomplished it by following these steps:
 
 * Remove empty rows
@@ -35,9 +36,20 @@ Then look for synonyms and antonyms for each synonym, returning the negated term
 * Remove the empty rows after lemmatization
 
 ## GRU Model
-
+![GRU Model Code](https://github.com/nancy9taya/Detoxi/blob/main/Model_GRU_2Emb.ipynb)
 * Bidirectional GRU 
 Bidirectional GRU are really just putting two independent GRUs together. This structure allows the networks to have both backward and forward information about the sequence at every time step.
 Using bidirectional will run your inputs in two directions, one from past to future and the other from future to past. What distinguishes this approach from unidirectional is that in the Simple GRU that runs backward, information from the future is preserved, whereas using the two hidden states combined, you can preserve information from both past and future at any point in time.
 
 * Features extraction
+
+
+
+
+## BERT Model
+![BERT Model Code](https://github.com/nancy9taya/Detoxi/blob/main/finalbert.ipynb)
+
+
+
+## XGBOOST Model
+![XGBOOST Model Code](https://github.com/nancy9taya/Detoxi/blob/main/xgboost-bert.ipynb)
