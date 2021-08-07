@@ -146,5 +146,5 @@ The figure shows how the Xgboost architecture works by combining the submodel pr
 ![Xgboost](https://github.com/nancy9taya/Detoxi/blob/main/XGBOOST.png)
 
 ## Author
-[Nancy Hassan](https://github.com/nancy9taya)
-Email: (Nancy.hassan99@eng-st.cu.edu.eg)
+* [Nancy Hassan](https://github.com/nancy9taya)
+* Email: (Nancy.hassan99@eng-st.cu.edu.eg)
